@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rate the worst Teacher</title>
+	<style type="text/css">
+		img{
+
+		}
+
+	</style>
+</head>
+<body>
+<center>
+	<img src="img/rank.png" width="200px" height="210px">
+	<h1 style="font-size: 52px">Rate Your Worst</h1>
+	<h1 style="font-size: 72px;"><img src="img/happy.png">  Teacher  <img src="img/happy.png"></h1>	
+	
+	<label style="font-size: 42px;">Select Branch:</label>
+	<select id="branchSelector" onchange="fun(this)" style="font-size: 24px; margin-left: 10px; height: 50px; width: 100px">
+		<option >Select</option>
+		<option value="ME">ME</option>
+		<option value="CSEIT">CSE/IT</option>
+		<option value="PE">PE</option>
+		<option value="CE">CIVIL</option>
+		<option value="ETC">ETC</option>
+		<option value="EE">EE/EEE</option>
+	</select>
+	<button onclick="vote()" style="margin-left: 10px; background-color: red; color: white; height: 50px; width: 100px">Vote</button> &nbsp Or
+	<button onclick="liverank()" style="margin-left: 10px; background-color: green; color: white; height: 50px; width: 150px">View Live Ranks</button>
+</center>
+
+<script>
+var selctedbranch="";
+
+function fun(sel){
+	selctedbranch = sel.options[sel.selectedIndex].value;
+}
+
+function vote(){
+	if(selctedbranch != "" && selctedbranch != undefined){
+		document.location.href = 'rank.php?q=' + selctedbranch;
+	}else alert("Select a branch");
+	
+}
+
+function liverank(){
+	if(selctedbranch != "" && selctedbranch != undefined){
+		document.location.href = 'liveranks.php?q=' + selctedbranch;
+	}else alert("Select a branch");
+}
+
+</script>
+</body>
+</html>
